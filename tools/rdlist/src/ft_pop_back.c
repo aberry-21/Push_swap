@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_back.c                                          :+:      :+:    :+:   */
+/*   ft_pop_back.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 20:39:22 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 20:39:23 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/23 20:41:50 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/23 22:12:44 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-t_rdlist		*ft_back(t_rdlist *head)
+void			ft_pop_back(t_rdlist **head,void (*del)(void*))
 {
-	return(head ? head->prev : (t_rdlist *)0);
+	t_rdlist	*current;
+
+	if (head && *head)
+	{
+		current = ft_back(*head);
+		ft_rdlstdelone(*head, current, del);
+	}
 }

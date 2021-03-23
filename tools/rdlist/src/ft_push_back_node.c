@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_back.c                                          :+:      :+:    :+:   */
+/*   ft_push_back_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 20:39:22 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 20:39:23 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/23 20:45:03 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/23 23:40:16 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-t_rdlist		*ft_back(t_rdlist *head)
+void			ft_push_back_node(t_rdlist **head, t_rdlist *new_node)
 {
-	return(head ? head->prev : (t_rdlist *)0);
+	t_rdlist	*last_node;
+
+	if (!head || !new_node)
+		return ;
+	if (!*head)
+		*head = ft_initializer_list();
+	if (*head)
+		ft_insert_node(*head, *head, new_node);
 }

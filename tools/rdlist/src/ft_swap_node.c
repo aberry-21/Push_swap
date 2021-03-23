@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_back.c                                          :+:      :+:    :+:   */
+/*   ft_swap_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 20:39:22 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 20:39:23 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/23 20:48:08 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/23 22:15:36 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-t_rdlist		*ft_back(t_rdlist *head)
+t_rdlist		*ft_swap_node(t_rdlist *first_node, t_rdlist *second_node)
 {
-	return(head ? head->prev : (t_rdlist *)0);
+	
 }

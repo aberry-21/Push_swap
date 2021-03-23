@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_back.c                                          :+:      :+:    :+:   */
+/*   ft_rdlstsize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/23 20:39:22 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 20:39:23 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/23 20:47:33 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/23 21:08:18 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-t_rdlist		*ft_back(t_rdlist *head)
+size_t			ft_rdlstsize(t_rdlist *head)
 {
-	return(head ? head->prev : (t_rdlist *)0);
+	return ((size_t)head->value);
 }
