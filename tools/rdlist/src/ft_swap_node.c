@@ -6,13 +6,28 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:48:08 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 22:15:36 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/24 20:20:31 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-t_rdlist		*ft_swap_node(t_rdlist *first_node, t_rdlist *second_node)
+void		ft_swap_node(t_rdlist *first_node, t_rdlist *second_node)
 {
-	
+	t_rdlist *second_node_prev;
+	t_rdlist *second_node_next;
+
+	if ((first_node && second_node) && (first_node != second_node))
+	{
+		second_node_prev = second_node->prev;
+		second_node_next = second_node->next;
+		first_node->prev->next = second_node;
+		second_node->prev = first_node->prev;
+		second_node_prev->next = first_node;
+		first_node->prev = second_node_prev;
+		second_node->next = first_node->next;
+		first_node->next->prev = second_node;
+		first_node->next = second_node_next;
+		second_node_next->prev = first_node;
+	}
 }

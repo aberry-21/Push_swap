@@ -6,13 +6,13 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:47:33 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 21:08:18 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/24 20:25:15 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-size_t			ft_rdlstsize(t_rdlist *head)
+int			ft_rdlstsize(t_rdlist *head)
 {
-	return ((size_t)head->value);
+	return (head ? (int)head->value : -1);
 }

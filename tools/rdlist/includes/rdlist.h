@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:50:51 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/23 22:15:05 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/24 17:48:09 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ t_rdlist		*ft_front(t_rdlist *head);
 /*
 ** Добавить элемент new_node слева от current
 */
-void			ft_insert_node(t_rdlist *head, t_rdlist *current, t_rdlist *new_node);
+void			ft_insert_node(t_rdlist *head, t_rdlist *position, t_rdlist *new_node);
 
 /*
 ** Добавить новый элемент с value слева от curren,
 ** возвращает новый элемент
 */
-t_rdlist		*ft_insert_value(t_rdlist *head, t_rdlist *current, void *value);
+t_rdlist		*ft_insert_value(t_rdlist *head, t_rdlist *position, void *value);
 
 /*
 ** Добавить элемент new_node в конец двусвязного списка head
@@ -94,7 +94,7 @@ void			ft_rdlstdelone(t_rdlist *head, t_rdlist *node, void (*del)(void*));
 /*
 ** Посчитать количество всех элементов в списке head
 */
-size_t			ft_rdlstsize(t_rdlist *head);
+int				ft_rdlstsize(t_rdlist *head);
 
 /*
 ** Удалить двухсвязный список lst со всеми элементами, через функцию del
@@ -104,6 +104,16 @@ void			ft_rdlstclear(t_rdlist **head, void (*del)(void*));
 /*
 ** Поменять элементы листа местами
 */
-t_rdlist		*ft_swap_node(t_rdlist *first_node, t_rdlist *second_node);
+void			ft_swap_node(t_rdlist *first_node, t_rdlist *second_node);
+
+/*
+** Поменять значения нод местами
+*/
+void			ft_swap_value(t_rdlist *first_node, t_rdlist *second_node);
+
+/*
+** Получить элемент по индексу, возвращает указатель на элемент 
+*/
+t_rdlist		*ft_get_node(t_rdlist *head, int index);
 
 #endif

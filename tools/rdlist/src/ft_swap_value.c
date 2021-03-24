@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_swap_value.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 20:03:31 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/24 21:15:09 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/24 17:35:02 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/24 18:03:09 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "rdlist.h"
 
-#include "libft.h"
+void			ft_swap_value(t_rdlist *first_node, t_rdlist *second_node)
+{
+	void		*tmp;
 
-
-void		ft_exit(t_stack *stack, char *error_message, int exit_code);
-void				ft_initialization_stack(\
-									t_stack *stack,\
-									char const *elements[],\
-									int count_elem);
-void				ft_print_stack(t_list *begin_stack);
-#endif
+	if ((first_node && second_node) && (first_node != second_node))
+	{
+		tmp = first_node->value;
+		first_node->value = second_node->value;
+		second_node->value = tmp;
+	}
+}

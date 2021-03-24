@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 12:49:40 by aberry            #+#    #+#              #
-#    Updated: 2021/03/23 22:18:16 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/24 17:58:52 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ NAME_FILES	=	ft_create_node.c\
 				ft_insert_value.c\
 				ft_insert_node.c\
 				ft_initializer_list.c\
-				ft_swap_node.c
+				ft_swap_node.c\
+				ft_swap_value.c\
+				ft_get_node.c
 
 FILES		=	$(addprefix ./src/, $(NAME_FILES))
 
