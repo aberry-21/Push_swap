@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:50:51 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/24 17:48:09 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/25 21:31:06 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,11 @@ void			ft_swap_value(t_rdlist *first_node, t_rdlist *second_node);
 ** Получить элемент по индексу, возвращает указатель на элемент 
 */
 t_rdlist		*ft_get_node(t_rdlist *head, int index);
+
+/*
+** Отвязать элемент node от двусвязного списка
+** Возвращает указатель на этот элемент
+*/
+t_rdlist		*ft_cut_node(t_rdlist *head, t_rdlist *node);
 
 #endif

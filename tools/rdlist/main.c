@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 13:30:03 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/24 20:32:13 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/26 01:52:09 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,46 @@ void		*ft_int2voidp(uintptr_t i)
 	return ((void*)i);
 }
 
-int main(int argc, char const *argv[])
+void		ft_test(void)
 {
 	t_rdlist	*head;
 	t_rdlist	*current;
 	size_t		count;
 
 	head = ft_initializer_list();
-
+	ft_push_back_value(&head, ft_int2voidp(11));
+	ft_push_back_value(&head, ft_int2voidp(12));
+	ft_push_back_value(&head, ft_int2voidp(13));
+	ft_push_back_value(&head, ft_int2voidp(14));
 
 	count = (int)head->value;
 	current = head;
-	for (size_t i = 0; i < count; i++)
+	for (size_t i = 0; i <= count; i++)
 	{
-		printf("%d\n", (int)current->next->value);
+		printf("%d\n", (int)current->value);
 		current = current->next;
 	}
-	ft_rdlstclear(&head, 0);
+
+
+	
+	ft_swap_node(head->next, head->next->next);
+
+	printf("\n\n\n");
+	count = (int)head->value;
+	current = head;
+	for (size_t i = 0; i <= count * 3 * 3 ; i++)
+	{
+		printf("%d\n", (int)current->value);
+		current = current->next;
+	}
+
+	// ft_rdlstclear(&head, 0);
 	head = 0;
+}
+
+int main(int argc, char const *argv[])
+{
+	ft_test();
 	// sleep(5);
 	return 0;
 }

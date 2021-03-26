@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 12:49:40 by aberry            #+#    #+#              #
-#    Updated: 2021/03/24 17:58:52 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/26 00:08:25 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 
 NAME		=	librdlist.a
 
-CC			=	gcc
+CC			=	gcc 
 
-CFLAGS		=	 -I ./includes #-Wall -Wextra -Werror
+CFLAGS		=	 -g -I ./includes -Wall -Wextra -Werror
 
 NAME_FILES	=	ft_create_node.c\
 				ft_back.c\
@@ -36,7 +36,8 @@ NAME_FILES	=	ft_create_node.c\
 				ft_initializer_list.c\
 				ft_swap_node.c\
 				ft_swap_value.c\
-				ft_get_node.c
+				ft_get_node.c\
+				ft_cut_node.c
 
 FILES		=	$(addprefix ./src/, $(NAME_FILES))
 
