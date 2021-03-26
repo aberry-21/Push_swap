@@ -6,59 +6,55 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 23:35:34 by aberry            #+#    #+#              #
-#    Updated: 2021/03/22 23:56:53 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/26 21:18:31 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY:		all re clean fclean tools
 
 NAME		=	checker
 
 CC			=	gcc
 
-LIBFT_DIR = ../tools/libft/
-LIBFT_H = -I $(LIBFT_DIR)
-LIBFT_A = libft.a
-LIBFT = $(LIBFT_DIR)$(LIBFT_A)
+LIBS		=	$(addprefix  ../tools/, libft rdlist command)
 
-INC			=	$(LIBFT_H) -I ./includes/
+INC			=	$(addprefix -I, $(addsuffix /includes/, . $(LIBS)))
 
-ADD_FLAGS	=	#-Wall -Wextra -Werror
-
-CFLAGS		=	-O3 -MMD $(INC) $(ADD_FLAGS)
+CFLAGS		=	-Wall -Wextra -Werror -O3 -MMD $(INC) $(ADD_FLAGS)
 
 FILES		= 	$(addprefix src/,\
 					main.c\
-					initialization.c\
-					exit.c\
 					)
 
 OBJS		=	$(FILES:.c=.o)
 DEPENDS		=	$(OBJS:.o=.d)
 
-all:		$(NAME) aberry
-
-$(NAME):	$(OBJS)
-	${CC} ${CFLAGS} ${OBJS} $(LIBFT) -o ${NAME}
-
-clean:
-	rm -rf ${OBJS} ${DEPENDS}
-
-fclean:		clean
-	rm -rf ${NAME}
-
-re:			fclean all
+all:		$(NAME)
 
 debug:		CFLAGS	+= -fsanitize=address -g
 debug:		all;
 
-aberry:
-	@echo "\033[36m\
-	░█████╗░██████╗░███████╗██████╗░██████╗░██╗░░░██╗░░░░░░██████╗░░░███╗░░\n\
-	██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗░██╔╝░░░░░░╚════██╗░████║░░\n\
-	███████║██████╦╝█████╗░░██████╔╝██████╔╝░╚████╔╝░█████╗░░███╔═╝██╔██║░░\n\
-	██╔══██║██╔══██╗██╔══╝░░██╔══██╗██╔══██╗░░╚██╔╝░░╚════╝██╔══╝░░╚═╝██║░░\n\
-	██║░░██║██████╦╝███████╗██║░░██║██║░░██║░░░██║░░░░░░░░░███████╗███████╗\n\
-	╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░░░░╚══════╝╚══════╝\033[0m"
+$(NAME):	$(OBJS) | tools
+	${CC} ${CFLAGS} ${OBJS} $(addprefix -L, $(LIBS)) -lft -lrdlist -lcmd -o ${NAME}
 
--include ${DEPENDS}%
+define		ft_tools
+	for library in $(LIBS) ; do \
+		make $(1) -C $$library ;\
+	done
+endef
+
+tools:
+	$(call ft_tools, )
+
+clean:
+	$(call ft_tools, clean)
+	rm -rf ${OBJS} ${DEPENDS}
+
+fclean:		clean
+	rm -rf ${NAME}
+	$(call ft_tools, fclean)
+
+re:			fclean all
+
+-include ${DEPENDS}
+
+

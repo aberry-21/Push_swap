@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:54:03 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/24 21:27:44 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/25 22:03:27 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct		s_stack
 ** Поменять местами первые 2 элемента на вершине стека.
 ** Ничего не делать, если менее двух элементов в стеке.
 */
-void				ft_cmd_swap(t_rdlist *begin_stack);
+void				ft_cmd_swap(t_rdlist *head_stack);
 
 /*
 ** Name command from the subject: sa
@@ -87,10 +87,10 @@ void				ft_cmd_push_b(t_stack *prt_stack);
 */
 
 /*
-** Сдвигает вверх все элементы стека begin_stack на 1.
+** Сдвигает вверх все элементы стека head_stack на 1.
 ** Первый элемент становится последним.
 */
-void				ft_cmd_rotate(t_rdlist *begin_stack);
+void				ft_cmd_rotate(t_rdlist *head_stack);
 
 /*
 ** Name command from the subject: ra
@@ -119,10 +119,10 @@ void				ft_cmd_rotate_all(t_stack *prt_stack);
 */
 
 /*
-** Сдвигает вниз все элементы стека begin_stack на 1.
+** Сдвигает вниз все элементы стека head_stack на 1.
 ** Последний элемент становится первым.
 */
-void				ft_cmd_rev_rotate(t_rdlist *begin_stack);
+void				ft_cmd_rev_rotate(t_rdlist *head_stack);
 
 /*
 ** Name command from the subject: rra
