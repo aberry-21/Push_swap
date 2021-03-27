@@ -6,33 +6,42 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 20:53:49 by aberry            #+#    #+#              #
-#    Updated: 2021/03/27 23:19:57 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/27 23:20:49 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 .PHONY:	all clean fclean re
 
-NAME		=	libcmd.a
+NAME		=	libvisual.a
 
 CC			=	gcc
 
-CFLAGS		=	 -I ./includes -I ../rdlist/includes/ -Wall -Wextra -Werror 
+LIBS		=	$(addprefix  ../, libft rdlist command)
 
-FILES		=	$(addprefix src/,\
-					$(addprefix push/,\
-						ft_cmd_push.c ft_cmd_push_a.c ft_cmd_push_b.c\
+INC			=	$(addprefix -I, $(addsuffix /includes/, . $(LIBS)))
+
+CFLAGS		=	$(INC) -Wall -Wextra -Werror 
+
+FILES		= 	$(addprefix src/,\
+					ft_visualizer.c\
+					$(addprefix signature/,\
+						print_command.c\
+						print_info_stack.c\
+						print_stack_name.c\
+						signature.c\
 					)\
-					$(addprefix swap/,\
-						ft_cmd_swap.c ft_cmd_swap_a.c ft_cmd_swap_all.c ft_cmd_swap_b.c\
+					$(addprefix utils/,\
+						print_info.c\
+						print_separator.c\
+						putnumber.c\
 					)\
-					$(addprefix rotate/,\
-						ft_cmd_rotate.c ft_cmd_rotate_a.c ft_cmd_rotate_all.c ft_cmd_rotate_b.c\
+					$(addprefix stack/,\
+						print_stack.c\
+						print_stack_value.c\
 					)\
-					$(addprefix reverse_rotate/,\
-						ft_cmd_rev_rotate.c ft_cmd_rev_rotate_a.c ft_cmd_rev_rotate_all.c ft_cmd_rev_rotate_b.c\
-					)\
-				)
+				)\
+
 OBJS		=	$(FILES:.c=.o)
 
 all:		${NAME}

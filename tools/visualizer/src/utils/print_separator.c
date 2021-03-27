@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   print_separator.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 23:39:21 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 23:23:27 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/27 19:00:28 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/27 19:00:29 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "visualizer.h"
 
-void		ft_exit(t_stack *stack, char *error_message, int exit_code)
+void		ft_print_separator(char symbol, int count)
 {
-	if (error_message)
-		ft_putendl_fd(error_message, 2);
-	ft_rdlstclear(&stack->a, (void *)0);
-	ft_rdlstclear(&stack->b, (void *)0);
-	stack = (t_stack *)0;
-	exit(exit_code);
+	int			counter;
+
+	counter = 0;
+	while (counter < count)
+	{
+		ft_putchar_fd(symbol, 1);
+		++counter;
+	}
 }

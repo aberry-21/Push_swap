@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/23 12:49:40 by aberry            #+#    #+#              #
-#    Updated: 2021/03/26 00:08:25 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/27 23:20:37 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@
 
 NAME		=	librdlist.a
 
-CC			=	gcc 
+CC			=	gcc
 
-CFLAGS		=	 -g -I ./includes -Wall -Wextra -Werror
+CFLAGS		=	 -I ./includes -Wall -Wextra -Werror 
 
 NAME_FILES	=	ft_create_node.c\
 				ft_back.c\
@@ -44,6 +44,9 @@ FILES		=	$(addprefix ./src/, $(NAME_FILES))
 OBJS		=	$(FILES:.c=.o)
 
 all:		${NAME}
+
+debug:		CFLAGS	+= -fsanitize=address -g
+debug:		all;
 
 ${NAME}:	$(OBJS)
 	ar rcs ${NAME} ${OBJS}

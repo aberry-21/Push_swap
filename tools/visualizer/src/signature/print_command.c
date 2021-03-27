@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   print_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 23:39:21 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 23:23:27 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/27 19:01:37 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/27 19:06:43 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "visualizer.h"
 
-void		ft_exit(t_stack *stack, char *error_message, int exit_code)
+void			ft_print_command(char *message)
 {
-	if (error_message)
-		ft_putendl_fd(error_message, 2);
-	ft_rdlstclear(&stack->a, (void *)0);
-	ft_rdlstclear(&stack->b, (void *)0);
-	stack = (t_stack *)0;
-	exit(exit_code);
+	ft_putendl_fd("", 1);
+	ft_putendl_fd(SEPARATOR, 1);
+	if (!message)
+		message = "";
+	ft_print_separator(' ', 32);
+	ft_putstr_fd("Command: ", 1);
+	ft_putstr_fd(message, 1);
+	ft_print_separator(' ', 38 - ft_strlen(message));
+	ft_putendl_fd("", 1);
+	ft_putendl_fd(SEPARATOR, 1);
 }

@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/21 16:59:06 by aberry            #+#    #+#              #
-#    Updated: 2021/03/26 21:06:27 by aberry           ###   ########.fr        #
+#    Updated: 2021/03/27 23:20:28 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,11 +64,14 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 INCLD = ./includes
 
 all:	$(NAME)
+
+debug:		CFLAGS	+= -fsanitize=address -g
+debug:		all;
 
 $(NAME):	$(OBJ)
 	@ar rc $(NAME) $(OBJ)

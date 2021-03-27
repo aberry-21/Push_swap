@@ -6,52 +6,35 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 20:02:18 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/26 21:23:36 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/27 23:13:22 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <stdio.h>
-// make && gcc main.c -I includes/ librdlist.a
 
-void		*ft_int2voidp(uintptr_t i)
+void		ft_init_stack(t_stack *stack)
 {
-	return ((void*)i);
+	ft_bzero(stack, sizeof(t_stack));
+	stack->a = ft_initializer_list();
+	stack->b = ft_initializer_list();
 }
 
-
-int			main(void)
+int			main(int argc, char const *argv[])
 {
 	t_stack		stack;
-	t_rdlist	*current;
-	size_t		count;
 
-	ft_push_back_value(&stack.a, ft_int2voidp(11));
-	ft_push_back_value(&stack.a, ft_int2voidp(12));
-	ft_push_back_value(&stack.a, ft_int2voidp(13));
-	ft_push_back_value(&stack.a, ft_int2voidp(14));
-	count = (int)stack.a->value;
-	current = stack.a;
-	for (size_t i = 0; i <= count; i++)
-	{
-		printf("%d\n", (int)current->value);
-		current = current->next;
-	}
-	ft_cmd_rotate_a(&stack);
-	
-	printf("\n\n");
-
-	count = (int)stack.a->value;
-	current = stack.a;
-	for (size_t i = 0; i <= count; i++)
-	{
-		printf("%d\n", (int)current->value);
-		current = current->next;
-	}
-	// ft_bzero(&stack, sizeof(t_stack));
-	// if (argc > 1)
-	// 	ft_initialization_stack(&stack, argv, argc - 1);
-	// ft_print_stack(stack.a);
-	// ft_exit(&stack, "good", 0);
-	return (0);
+	if (argc < 2)
+		return (0);
+	ft_init_stack(&stack);
+	if (ft_initialization_stack(&stack, argv, argc - 1))
+		ft_exit(&stack, "Error", 1);
+	ft_visualizer(&stack, "Initialization");
+	if(ft_input_command(&stack))
+		ft_exit(&stack, "Error", 1);
+	ft_visualizer(&stack, "Result");
+	ft_putendl_fd((ft_check_result(&stack)) ?\
+						"\033[1;31mKO\033[m" :\
+						"\033[1;32mOK\033[m", 1);
+	ft_exit(&stack, 0, 0);
 }
