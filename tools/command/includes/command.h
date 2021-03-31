@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:54:03 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/25 22:03:27 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/31 17:28:10 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct		s_stack
 {
 	t_rdlist		*a;
 	t_rdlist		*b;
+	int				*sort_array;
+	int				count_group;
 }					t_stack;
 
 /*

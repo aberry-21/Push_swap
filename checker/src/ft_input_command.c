@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:07:43 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 23:07:21 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/30 16:19:44 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ static int				ft_exe_command(t_stack *stack, char *line)
 		{
 			array_funcs[counter](stack);
 			++flag;
+			ft_visualizer(stack, line);
 			break;
 		}
 		++counter;
 	}
-	ft_visualizer(stack, line);
+	if (flag == 0)
+		flag = !ft_strncmp(line, "",ft_strlen(line) + 1);
 	free(line);
 	return (flag);
 }

@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:50:51 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/25 21:31:06 by aberry           ###   ########.fr       */
+/*   Updated: 2021/03/31 14:40:45 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct		s_rdlist
 {
 	void			*value;
+	int				group;
 	struct s_rdlist	*next;
 	struct s_rdlist	*prev;
 }					t_rdlist;

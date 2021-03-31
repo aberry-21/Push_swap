@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   size_group.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/22 23:39:21 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/31 16:10:04 by aberry           ###   ########.fr       */
+/*   Created: 2021/03/31 17:43:42 by aberry            #+#    #+#             */
+/*   Updated: 2021/03/31 17:46:07 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
-void		ft_exit(t_stack *stack, char *error_message, int exit_code)
+int					ft_size_group(t_rdlist *begin_stack, int group)
 {
-	if (error_message)
-		ft_putendl_fd(error_message, 2);
-	ft_rdlstclear(&stack->a, (void *)0);
-	ft_rdlstclear(&stack->b, (void *)0);
-	stack = (t_stack *)0;
-	exit(exit_code);
+	int			counter;
+
+	counter = 0;
+	begin_stack = ft_front(begin_stack);
+	while (begin_stack)
+	{
+		if (begin_stack->group != group)
+			break;
+		++counter;
+		begin_stack = begin_stack->next;
+	}
+	return (counter);
 }
