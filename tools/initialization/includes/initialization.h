@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:28:23 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 16:26:50 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 21:09:25 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int			ft_check_duplicate_data(t_rdlist *begin);
 int			ft_isnumber(const char *line);
-int			ft_is_more_limit(long number);
+int			ft_is_more_limit(long number, const char *line);
 int			ft_initialization_stack(\
 							t_stack *stack,\
 							char const *elements[],\

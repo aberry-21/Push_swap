@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
+#    By: aberry <aberrystudent.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/21 16:59:06 by aberry            #+#    #+#              #
 #    Updated: 2021/03/27 23:20:28 by aberry           ###   ########.fr        #
@@ -74,23 +74,23 @@ debug:		CFLAGS	+= -fsanitize=address -g
 debug:		all;
 
 $(NAME):	$(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 bonus:	for_bonus
 
 for_bonus: $(NAME) $(OBJ_BONUS)
-	@ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
+	ranlib $(NAME)
 	
 
 .c.o:
-	@$(CC) $(CFLAGS) -I$(INCLD) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -I$(INCLD) -c $< -o $(<:.c=.o)
 
 clean:
-	@rm -rf $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ) $(OBJ_BONUS)
 fclean: clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean  all
 

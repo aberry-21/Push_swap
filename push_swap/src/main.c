@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 16:25:41 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 16:27:09 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 20:51:25 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int			main(int argc, char const *argv[])
 	if (stack.sort_array == 0)
 		ft_exit(&stack, "Error", 1);
 	ft_quick_sort_stack(&stack);
+	ft_exit(&stack, 0, 0);
 }

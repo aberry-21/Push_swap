@@ -6,9 +6,11 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 16:23:34 by aberry            #+#    #+#              #
-#    Updated: 2021/04/02 17:17:42 by aberry           ###   ########.fr        #
+#    Updated: 2021/04/02 17:45:41 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+.PHONY:		all re clean fclean
 
 NAME		=	push_swap
 
@@ -59,22 +61,11 @@ debug:		all;
 $(NAME):	$(OBJS)
 	${CC} ${CFLAGS} ${OBJS} $(addprefix -L, $(LIBS)) -lvisual -lft -lrdlist -lcmd -linit -o ${NAME}
 
-define		ft_tools
-	for library in $(LIBS) ; do \
-		make $(1) -C $$library ;\
-	done
-endef
-
-tools:
-	$(call ft_tools, )
-
 clean:
-	$(call ft_tools, clean)
 	rm -rf ${OBJS} ${DEPENDS}
 
 fclean:		clean
 	rm -rf ${NAME}
-	$(call ft_tools, fclean)
 
 re:			fclean all
 

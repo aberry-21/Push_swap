@@ -6,10 +6,12 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 23:35:34 by aberry            #+#    #+#              #
-#    Updated: 2021/04/02 17:15:12 by aberry           ###   ########.fr        #
+#    Updated: 2021/04/02 17:45:44 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
+.PHONY:		all re clean fclean
 
 NAME		=	checker
 
@@ -35,25 +37,14 @@ all:		$(NAME)
 debug:		CFLAGS	+= -fsanitize=address -g
 debug:		all;
 
-$(NAME):	$(OBJS) | tools
+$(NAME):	$(OBJS)
 	${CC} ${CFLAGS} ${OBJS} $(addprefix -L, $(LIBS)) -lvisual -lft -lrdlist -lcmd -linit -o ${NAME}
 
-define		ft_tools
-	for library in $(LIBS) ; do \
-		make $(1) -C $$library ;\
-	done
-endef
-
-tools:
-	$(call ft_tools, )
-
 clean:
-	$(call ft_tools, clean)
 	rm -rf ${OBJS} ${DEPENDS}
 
 fclean:		clean
 	rm -rf ${NAME}
-	$(call ft_tools, fclean)
 
 re:			fclean all
 
