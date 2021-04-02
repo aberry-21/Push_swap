@@ -6,11 +6,12 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:14:18 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 01:17:38 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 16:26:21 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "initialization.h"
+#include <limits.h>
 
 int			ft_isnumber(const char *line)
 {
@@ -28,7 +29,7 @@ int			ft_isnumber(const char *line)
 	return (true);
 }
 
-int			ft_is_more_limit(int digit, const char *line)
+int			ft_is_more_limit(long number)
 {
-	return (((line[0] == '-' && digit >= 0) || (line[0] != '-' && digit < 0)));
+	return ((number > (long)INT_MAX) || (number < (long)INT_MIN));
 }

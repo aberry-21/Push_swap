@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cmd_rev_rotate_a.c                              :+:      :+:    :+:   */
+/*   set_stable_group.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 20:49:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 20:18:57 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/02 15:30:43 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 15:31:02 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "command.h"
+#include "push_swap.h"
 
-void				ft_cmd_rev_rotate_a(t_stack *prt_stack, int attributes)
+void		ft_set_stable_group(t_rdlist *head, int group)
 {
-	if (prt_stack)
-		ft_cmd_rev_rotate(prt_stack->a);
-	if(attributes == FOR_PUSH_SWAP)
-		write(1, "rra\n", 4);
+	head = ft_front(head);
+	while (head->group == group)
+	{
+		head->group = 0;
+		head = head->next;
+	}
 }

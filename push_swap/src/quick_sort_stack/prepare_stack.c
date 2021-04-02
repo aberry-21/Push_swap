@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cmd_rev_rotate_a.c                              :+:      :+:    :+:   */
+/*   prepare_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 20:49:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 20:18:57 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/01 19:32:39 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 15:51:16 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "command.h"
+#include "push_swap.h"
 
-void				ft_cmd_rev_rotate_a(t_stack *prt_stack, int attributes)
+void			ft_prepare_stack(t_stack *stack)
 {
-	if (prt_stack)
-		ft_cmd_rev_rotate(prt_stack->a);
-	if(attributes == FOR_PUSH_SWAP)
-		write(1, "rra\n", 4);
+	int			size;
+
+	size = ft_rdlstsize(stack->a);
+	if (ft_issort(stack->a, ft_compare_less, size - 1) == 1)
+		return ;
+	if (size > 3)
+	{
+		++stack->count_group;
+		ft_operation_with_stack_a(stack, size);
+		ft_prepare_stack(stack);
+	}
+	if (size == 2)
+		ft_cmd_swap_a(stack, FOR_PUSH_SWAP);
+	if (size == 3)
+		ft_sort_three_elem_a(stack);
 }

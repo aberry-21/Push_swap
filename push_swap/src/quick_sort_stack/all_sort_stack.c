@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cmd_rev_rotate_a.c                              :+:      :+:    :+:   */
+/*   all_sort_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 20:49:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 20:18:57 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/02 15:48:57 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 16:27:40 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "command.h"
+#include "push_swap.h"
 
-void				ft_cmd_rev_rotate_a(t_stack *prt_stack, int attributes)
+void		ft_quick_sort_stack(t_stack *stack)
 {
-	if (prt_stack)
-		ft_cmd_rev_rotate(prt_stack->a);
-	if(attributes == FOR_PUSH_SWAP)
-		write(1, "rra\n", 4);
+	ft_prepare_stack(stack);
+	while (ft_front(stack->a)->group != 0 || ft_front(stack->b)->group != 0)
+	{
+		ft_quick_sort_stack_a(stack, ft_front(stack->a)->group);
+		ft_quick_sort_stack_b(stack, ft_front(stack->b)->group);
+	}
 }

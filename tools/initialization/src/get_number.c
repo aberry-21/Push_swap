@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_number.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 16:25:41 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 16:27:09 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/02 16:05:00 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 16:26:14 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "initialization.h"
 
-int			main(int argc, char const *argv[])
+static int		ft_isspace(int c)
 {
-	t_stack		stack;
-
-	if (argc < 2)
+	if (c == '\t' || c == '\n' || c == '\v' ||
+		c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	else
 		return (0);
-	if (ft_init_stack(&stack))
-		ft_exit(&stack, "Error", 1);
-	if (ft_initialization_stack(&stack, argv, argc - 1))
-		ft_exit(&stack, "Error", 1);
-	stack.sort_array = ft_calloc(ft_rdlstsize(stack.a), sizeof(int));
-	if (stack.sort_array == 0)
-		ft_exit(&stack, "Error", 1);
-	ft_quick_sort_stack(&stack);
+}
+
+long			ft_get_number(const char *str)
+{
+	long	b;
+	int		c;
+
+	b = 0;
+	c = 0;
+	while (ft_isspace(*str))
+		str++;
+	c = (*str == '-') ? -1 : 1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
+		b = b * 10 + *str++ - '0';
+	return ((long)b * c);
 }

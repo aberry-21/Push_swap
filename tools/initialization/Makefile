@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/26 20:53:49 by aberry            #+#    #+#              #
-#    Updated: 2021/03/27 23:20:08 by aberry           ###   ########.fr        #
+#    Updated: 2021/04/02 16:10:57 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ FILES		=	$(addprefix src/,\
 					check_duplicate.c\
 					check_value.c\
 					initialization.c\
+					ft_exit.c\
+					ft_init_stack.c\
+					get_number.c\
 				)
 OBJS		=	$(FILES:.c=.o)
 

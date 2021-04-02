@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/30 16:23:34 by aberry            #+#    #+#              #
-#    Updated: 2021/03/31 18:39:15 by aberry           ###   ########.fr        #
+#    Updated: 2021/04/02 17:17:42 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,33 @@ LIBS		=	$(addprefix  ../tools/, command initialization libft rdlist visualizer)
 
 INC			=	$(addprefix -I, $(addsuffix /includes/, . $(LIBS)))
 
-CFLAGS		=	 -O3 -MMD $(INC) $(ADD_FLAGS) #-Wall -Wextra -Werror
+CFLAGS		=	 -O3 -MMD $(INC) -Wall -Wextra -Werror
 
 FILES		= 	$(addprefix src/,\
 					main.c\
-					quick_sort.c\
-					find_middlepoint.c\
-					issort.c\
-					prepare_sort.c\
-					size_group.c\
 					$(addprefix quick_sort_stack/,\
-						quick_sort_stack_a.c\
-						quick_sort_stack_b.c\
+						prepare_stack.c\
+						all_sort_stack.c\
+						$(addprefix stack_a/,\
+							divide_and_conquer.c\
+							main_algo.c\
+							operation.c\
+							set_stable_group.c\
+							sort_three_elem.c\
+						)\
+						$(addprefix stack_b/,\
+							operation.c\
+							push_all.c\
+							main_algo.c\
+						)\
+					)\
+					$(addprefix utils/,\
+						get_index_max_elem.c\
+						initialization_array.c\
+						quick_sort.c\
+						get_middlepoint.c\
+						issort.c\
+						size_group.c\
 					)\
 				)
 
@@ -41,12 +56,12 @@ all:		$(NAME)
 debug:		CFLAGS	+= -fsanitize=address -g
 debug:		all;
 
-$(NAME):	$(OBJS) | tools
+$(NAME):	$(OBJS)
 	${CC} ${CFLAGS} ${OBJS} $(addprefix -L, $(LIBS)) -lvisual -lft -lrdlist -lcmd -linit -o ${NAME}
 
 define		ft_tools
 	for library in $(LIBS) ; do \
-		make debug $(1) -C $$library ;\
+		make $(1) -C $$library ;\
 	done
 endef
 

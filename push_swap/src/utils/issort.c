@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 15:49:50 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/31 18:48:03 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/01 19:34:05 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/01 23:25:55 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ int				ft_issort(t_rdlist *stack, int (*compare)(int, int), int last)
 {
 	t_rdlist		*slow;
 	t_rdlist		*fast;
+	int				counter;
 
 	slow = ft_front(stack);
 	fast = slow->next;
-	while (last)
+	counter = 0;
+	while (counter < last)
 	{
-		if (compare((int)slow->value, (int)fast->value))
+		if (compare((int)slow->value, (int)fast->value) == 0)
 			return (0);
 		slow = fast;
 		fast = fast->next;
-		--last;
+		++counter;
 	}
 	return (1);
 }

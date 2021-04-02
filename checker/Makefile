@@ -6,7 +6,7 @@
 #    By: aberry <aberry@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 23:35:34 by aberry            #+#    #+#              #
-#    Updated: 2021/03/27 23:03:34 by aberry           ###   ########.fr        #
+#    Updated: 2021/04/02 17:15:12 by aberry           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ CFLAGS		=	-Wall -Wextra -Werror -O3 -MMD $(INC) $(ADD_FLAGS)
 
 FILES		= 	$(addprefix src/,\
 					main.c\
-					exit.c\
 					ft_input_command.c\
 					ft_check_result.c\
 				)

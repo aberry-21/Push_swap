@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cmd_rev_rotate_a.c                              :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 20:49:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 20:18:57 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/02 15:53:28 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 15:54:03 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "command.h"
+#include "initialization.h"
 
-void				ft_cmd_rev_rotate_a(t_stack *prt_stack, int attributes)
+void		ft_exit(t_stack *stack, char *error_message, int exit_code)
 {
-	if (prt_stack)
-		ft_cmd_rev_rotate(prt_stack->a);
-	if(attributes == FOR_PUSH_SWAP)
-		write(1, "rra\n", 4);
+	if (error_message)
+		ft_putendl_fd(error_message, 2);
+	ft_rdlstclear(&stack->a, (void *)0);
+	ft_rdlstclear(&stack->b, (void *)0);
+	free(stack->sort_array);
+	stack = (t_stack *)0;
+	exit(exit_code);
 }

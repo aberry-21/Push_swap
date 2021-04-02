@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cmd_rev_rotate_a.c                              :+:      :+:    :+:   */
+/*   ft_init_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 20:49:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 20:18:57 by aberry           ###   ########.fr       */
+/*   Created: 2021/04/02 15:56:45 by aberry            #+#    #+#             */
+/*   Updated: 2021/04/02 16:21:14 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "command.h"
+#include "initialization.h"
 
-void				ft_cmd_rev_rotate_a(t_stack *prt_stack, int attributes)
+int			ft_init_stack(t_stack *stack)
 {
-	if (prt_stack)
-		ft_cmd_rev_rotate(prt_stack->a);
-	if(attributes == FOR_PUSH_SWAP)
-		write(1, "rra\n", 4);
+	ft_bzero(stack, sizeof(t_stack));
+	stack->a = ft_initializer_list();
+	stack->b = ft_initializer_list();
+	if (stack->a == 0 || stack->b == 0)
+		return (1);
+	stack->a->group = 0;
+	stack->b->group = 0;
+	return (0);
 }

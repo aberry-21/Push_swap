@@ -6,13 +6,13 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:02:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 00:48:59 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 15:12:08 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		ft_swap_int_value(int *first, int *second)
+static void			ft_swap_int(int *first, int *second)
 {
 	int		tmp;
 
@@ -21,27 +21,36 @@ static void		ft_swap_int_value(int *first, int *second)
 	*second = tmp;
 }
 
-void			ft_quick_sort(int *array, int first, int last)
+static int			ft_divide(int arr[], int low, int fast)
 {
-	int		left;
-	int		right;
-	int		middle;
+	int		pivot;
+	int		i;
+	int		j;
 
-	if (first < last)
+	pivot = arr[fast];
+	i = (low - 1); 
+	j = low;
+	while(j <= fast - 1)
 	{
-		left = first;
-		right = last;
-		middle = array[(left + right) / 2];
-		while (left <= right)
+		if (arr[j] < pivot)
 		{
-			while (array[left] < middle)
-				left++;
-			while (array[right] > middle)
-				right--;
-			if (left <= right)
-				ft_swap_int_value(&array[left++], &array[right--]);
+			i++; 
+			ft_swap_int(&arr[i], &arr[j]);
 		}
-		ft_quick_sort(array, first, right);
-		ft_quick_sort(array, left, last);
+		j++;
+	}
+	ft_swap_int(&arr[i + 1], &arr[fast]);
+	return (i + 1);
+}
+
+void			ft_quick_sort(int arr[], int low, int fast)
+{
+	int		middlepoint;
+
+	if (low < fast)
+	{
+		middlepoint = ft_divide(arr, low, fast);
+		ft_quick_sort(arr, low, middlepoint - 1);
+		ft_quick_sort(arr, middlepoint + 1, fast);
 	}
 }
