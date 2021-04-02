@@ -6,18 +6,19 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 20:54:03 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 21:38:52 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:49:06 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMAND_H
 # define COMMAND_H
 
-#include "rdlist.h"
-#include <unistd.h>
+# include "rdlist.h"
+# include <unistd.h>
 
 # define FOR_CHECKER		0b00000001
 # define FOR_PUSH_SWAP		0b00000010
+
 typedef struct		s_stack
 {
 	t_rdlist		*a;
@@ -65,7 +66,7 @@ void				ft_cmd_swap_all(t_stack *prt_stack, int attributes);
 */
 
 /*
-** Берет первый элемент вверху стека first_stack и помещает его 
+** Берет первый элемент вверху стека first_stack и помещает его
 ** вверху стека second_stack.
 ** Ничего не делает, если first_stack пустой.
 */

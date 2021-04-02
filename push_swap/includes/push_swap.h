@@ -6,14 +6,14 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 20:03:31 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 15:49:12 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:39:26 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "includes.h"
+# include "includes.h"
 
 void		ft_quick_sort(int arr[], int low, int fast);
 void		ft_initialization_array(t_stack *stack, t_rdlist *head, int size);

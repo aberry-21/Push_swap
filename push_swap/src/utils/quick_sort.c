@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:02:35 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 15:12:08 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:45:50 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static int			ft_divide(int arr[], int low, int fast)
 	int		j;
 
 	pivot = arr[fast];
-	i = (low - 1); 
+	i = (low - 1);
 	j = low;
-	while(j <= fast - 1)
+	while (j <= fast - 1)
 	{
 		if (arr[j] < pivot)
 		{
-			i++; 
+			i++;
 			ft_swap_int(&arr[i], &arr[j]);
 		}
 		j++;
@@ -43,7 +43,7 @@ static int			ft_divide(int arr[], int low, int fast)
 	return (i + 1);
 }
 
-void			ft_quick_sort(int arr[], int low, int fast)
+void				ft_quick_sort(int arr[], int low, int fast)
 {
 	int		middlepoint;
 

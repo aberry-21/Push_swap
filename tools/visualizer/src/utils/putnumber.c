@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 18:59:04 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 20:32:09 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 23:01:13 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		ft_size_number(int nbr)
 	if (number / 10 == 0)
 		return (++size);
 	else
-		while (number > 0) 
+		while (number > 0)
 		{
 			number = number / 10;
 			++size;

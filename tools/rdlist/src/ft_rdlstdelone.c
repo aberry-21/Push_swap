@@ -6,13 +6,14 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:47:05 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 16:08:02 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:57:31 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rdlist.h"
 
-void			ft_rdlstdelone(t_rdlist *head, t_rdlist *node, void (*del)(void*))
+void			ft_rdlstdelone(t_rdlist *head, t_rdlist *node,\
+															void (*del)(void*))
 {
 	if (node)
 	{

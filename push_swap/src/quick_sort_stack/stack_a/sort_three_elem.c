@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three_elem_a.c                                :+:      :+:    :+:   */
+/*   sort_three_elem.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 13:53:12 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 14:22:12 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:46:31 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void		ft_sort_three_elem_a(t_stack *stack)
 {
 	t_rdlist		*begin;
 	int				index_max_v;
-
 
 	begin = ft_front(stack->a);
 	index_max_v = ft_get_index_max_elem(begin);

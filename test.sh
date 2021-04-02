@@ -346,3 +346,7 @@ elif [ $dif -eq 500 ]
 fi
 
 echo "\n💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠 💠"
+
+# ARG="4 67 3 87 23"; ./push_swap/push_swap $ARG | ./checker/checker $ARG
+# ARG=`ruby -e "puts (0..50).to_a.shuffle.join(' ')"`; ./push_swap/push_swap $ARG | ./checker/checker $ARG
+# sh test.sh -full 1 100 40

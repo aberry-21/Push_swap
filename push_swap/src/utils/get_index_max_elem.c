@@ -6,14 +6,14 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 14:22:04 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 15:09:24 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:42:01 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-static int		ft_find_max_value(t_rdlist *begin)
+static int	ft_find_max_value(t_rdlist *begin)
 {
 	int		max_value;
 	int		counter;

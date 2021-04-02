@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 15:18:49 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/02 15:39:54 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:46:46 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void			ft_operation_with_many_group(\
 	}
 }
 
-void			ft_operation_with_stack_a(t_stack *stack, int size)
+void				ft_operation_with_stack_a(t_stack *stack, int size)
 {
 	int			count_operation;
 	int			count_rotate;

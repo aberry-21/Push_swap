@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 20:39:22 by aberry            #+#    #+#             */
-/*   Updated: 2021/04/01 19:28:33 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:56:02 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 t_rdlist		*ft_back(t_rdlist *head)
 {
-	return(head ? head->prev : (t_rdlist *)0);
+	return (head ? head->prev : (t_rdlist *)0);
 }

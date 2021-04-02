@@ -6,17 +6,16 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:37:29 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/27 21:22:02 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 23:00:39 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VISUALIZER_H
 # define VISUALIZER_H
 
-#define SEPARATOR "-------------------------------------------------------------------------------"
-#include "libft.h"
-#include "rdlist.h"
-#include "command.h"
+# include "libft.h"
+# include "rdlist.h"
+# include "command.h"
 
 void			ft_print_command(char *message);
 void			ft_putnumber_fd(int nb, int fd);

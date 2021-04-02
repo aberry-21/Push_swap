@@ -6,7 +6,7 @@
 /*   By: aberry <aberry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 17:43:17 by aberry            #+#    #+#             */
-/*   Updated: 2021/03/25 21:25:08 by aberry           ###   ########.fr       */
+/*   Updated: 2021/04/02 22:56:17 by aberry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int			ft_normalization_index(int index, int size, int *flag)
 	return (index);
 }
 
-t_rdlist		*ft_get_node(t_rdlist *head, int index)
+t_rdlist			*ft_get_node(t_rdlist *head, int index)
 {
 	t_rdlist		*find_node;
 	int				flag;

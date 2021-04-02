@@ -14,5 +14,5 @@
 
 t_rdlist		*ft_front(t_rdlist *head)
 {
-	return(head ? head->next : (t_rdlist *)0);
+	return (head ? head->next : (t_rdlist *)0);
 }
